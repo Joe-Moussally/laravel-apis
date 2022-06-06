@@ -23,13 +23,11 @@ class APIsController extends Controller
     public function divide_groups() {
         //shuffle array then assign 2's in order
         $array = ['joe','mario','luidgi','jason','maria','casandra','charbel','james','joelle'];
-        $shuffled_array = shuffle($array)
-        $i = 0;
-        while (count($array) > 0) {
-            $groups[i] = [];
-            $student = rand(0,count($array-1));
+        $shuffled_array = shuffle($array);
+        //divide the array into chunks of 2
+        $divided_groups = array_chuck($shuffled_array,2)
 
-        }
+        echo $divided_groups
         
     }
 
