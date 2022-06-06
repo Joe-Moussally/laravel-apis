@@ -25,9 +25,9 @@ class APIsController extends Controller
         $array = ['joe','mario','luidgi','jason','maria','casandra','charbel','james','joelle'];
         $shuffled_array = shuffle($array);
         //divide the array into chunks of 2
-        $divided_groups = array_chuck($shuffled_array,2)
+        $divided_groups = array_chunk($shuffled_array,2);
 
-        echo $divided_groups
+        echo $divided_groups;
         
     }
 
@@ -55,5 +55,12 @@ class APIsController extends Controller
         $start = (1732*365*24*60*60)+(4*4*7*24*60*60)+(14*24*60*60);
 
         echo $start-time();
+    }
+
+    public function beer_recipe() {
+        $url = file_get_contents("https://api.punkapi.com/v2/beers");
+
+        $recipe = json_decode($url, $assoc = false);
+        echo json_encode($recipe[rand(0,count($recipe))-1]);
     }
 }
