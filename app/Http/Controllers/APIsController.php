@@ -34,7 +34,7 @@ class APIsController extends Controller
     public function get_joke() {
         $url = file_get_contents("https://icanhazdadjoke.com/slack");
         $joke = json_decode($url, $assoc = false);
-        echo json_encode($joke);
+        echo json_encode($joke.getString('text'));
     }
 
     public function hilda() {
