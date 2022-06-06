@@ -23,9 +23,9 @@ class APIsController extends Controller
     public function divide_groups() {
         //shuffle array then assign 2's in order
         $array = ['joe','mario','luidgi','jason','maria','casandra','charbel','james','joelle'];
-        $shuffled_array = shuffle($array);
+        shuffle($array);
         //divide the array into chunks of 2
-        $divided_groups = array_chunk($shuffled_array,2);
+        $divided_groups = json_encode(array_chunk($array,2));
 
         echo $divided_groups;
         
@@ -33,8 +33,8 @@ class APIsController extends Controller
 
     public function get_joke() {
         $url = file_get_contents("https://icanhazdadjoke.com/slack");
-
-        // return $url->['attachments'];
+        $jokes = json_decode($url, $assoc = false);
+        echo json_encode(json_decode($jokes)['attachment']);
     }
 
     public function hilda() {
