@@ -33,8 +33,8 @@ class APIsController extends Controller
 
     public function get_joke() {
         $url = file_get_contents("https://icanhazdadjoke.com/slack");
-        $jokes = json_decode($url, $assoc = false);
-        echo json_encode(json_decode($jokes)['attachment']);
+        $joke = json_decode($url, $assoc = false);
+        echo json_encode($joke);
     }
 
     public function hilda() {
